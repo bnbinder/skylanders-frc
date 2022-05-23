@@ -24,7 +24,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     try{
-      arduino = new SerialPort(9600, SerialPort.Port.kUSB);
+      arduino = new SerialPort(9600, "/dev/ttyACM0", SerialPort.Port.kUSB, 8, SerialPort.Parity.kNone, SerialPort.StopBits.kOne);
       System.out.println("Connected on kUSB!");
     }
     catch(Exception e)
@@ -32,8 +32,8 @@ public class Robot extends TimedRobot {
       System.out.println("Failed to connect on kUSB, trying kUSB1");
       try
       {
-        arduino = new SerialPort(9600, SerialPort.Port.kUSB1);
-        System.out.println("Connected on kUSB1!");
+        arduino = new SerialPort(9600, "/dev/ttyACM1", SerialPort.Port.kUSB, 8, SerialPort.Parity.kNone, SerialPort.StopBits.kOne);
+        System.out.println("Connected on kUSB!");
       }
       catch(Exception e1)
       {
@@ -69,14 +69,11 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     if(timer.get() > 5)
     {
-      System.out.println("Wrtoe to arduino");
-      arduino.write(new byte[] {0x12}, 1);
+      //System.out.println("Reading arduino");
+      //arduino.readString();
       timer.reset();
     }
-    if(arduino.getBytesReceived() > 0)
-    {
       System.out.print(arduino.readString());
-    }
   }
 
   @Override
