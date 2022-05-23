@@ -25,30 +25,22 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     try{
       arduino = new SerialPort(9600, "/dev/ttyACM0", SerialPort.Port.kUSB, 8, SerialPort.Parity.kNone, SerialPort.StopBits.kOne);
-      System.out.println("Connected on kUSB!");
+      System.out.println("Connected on usb port one!");
     }
     catch(Exception e)
     {
-      System.out.println("Failed to connect on kUSB, trying kUSB1");
+      System.out.println("Failed to connect on usb port one, trying usb port two");
       try
       {
         arduino = new SerialPort(9600, "/dev/ttyACM1", SerialPort.Port.kUSB, 8, SerialPort.Parity.kNone, SerialPort.StopBits.kOne);
-        System.out.println("Connected on kUSB!");
+        System.out.println("Connected on usb port two!");
       }
       catch(Exception e1)
       {
-        System.out.println("Failed to connect on kUSB1, trying kUSB2");
-        try
-        {
-          arduino = new SerialPort(9600, SerialPort.Port.kUSB2);
-          System.out.println("Connected on kUSB2!");
-        }
-        catch(Exception e2)
-        {
-          System.out.println("Failed to connect on kUSB2, all connection attempts failed");
-        }
+        System.out.println("Failed to connect on usb port two, failed all usb ports. Is your Ardunio plugged in?");
+      }
     }
-  }
+  
   timer = new Timer();
   timer.start();
 }
