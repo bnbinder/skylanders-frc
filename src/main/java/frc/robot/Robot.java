@@ -26,7 +26,7 @@ public class Robot extends TimedRobot {
     try{
       arduino = new SerialPort(9600, "/dev/ttyACM0", SerialPort.Port.kUSB, 8, SerialPort.Parity.kNone, SerialPort.StopBits.kOne);
       System.out.println("Connected on usb port one!");
-    }
+   }
     catch(Exception e)
     {
       System.out.println("Failed to connect on usb port one, trying usb port two");
