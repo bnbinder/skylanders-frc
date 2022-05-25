@@ -4,6 +4,9 @@
 
 package frc.robot;
 
+import java.io.File;
+import java.nio.file.Path;
+
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
@@ -21,6 +24,11 @@ public class Robot extends TimedRobot {
    */
   private  SerialPort arduino;
   private Timer timer;
+  private String keyIn = "";
+  private String blueChain = "30937C22";
+  private String whiteCard = "4109321B";
+
+  
   @Override
   public void robotInit() {
     try{
@@ -55,17 +63,31 @@ public class Robot extends TimedRobot {
   public void autonomousPeriodic() {}
 
   @Override
-  public void teleopInit() {  }
+  public void teleopInit() { 
+    keyIn = "";
+     
+   }
 
   @Override
   public void teleopPeriodic() {
-    if(timer.get() > 5)
+    if(timer.get() > 2)
     {
       //System.out.println("Reading arduino");
       //arduino.readString();
+      keyIn = arduino.readString();
+      System.out.println(arduino.readString());
+      if(keyIn.equals(blueChain))
+      {
+        System.out.println("kaoooooos!!!!");
+      }
+      if(keyIn.equals(whiteCard))
+      {
+
+      }
       timer.reset();
+
     }
-      System.out.print(arduino.readString());
+      
   }
 
   @Override
