@@ -10,6 +10,6 @@ all you need is a few skylanders, an arduino, an arduino rfid reader, a roborio,
 (im using the deprecated wpi SerialPort because the new one conflicts with Canivore devices :( so the fellas in the fine frc discord told me to use the deprecated one and it worked so ¯\_(ツ)_/¯ )
 
 credit: <br>
-https://www.youtube.com/watch?v=MdZKJBnQZsU&ab_channel=ProgrammingKnowledge - how to set up the arduino code
-https://www.youtube.com/watch?v=RMHCSwLIyqg&ab_channel=BradBickford - how to connect the arduino to the roborio
+https://www.youtube.com/watch?v=MdZKJBnQZsU&ab_channel=ProgrammingKnowledge - how to set up the arduino code <br>
+https://www.youtube.com/watch?v=RMHCSwLIyqg&ab_channel=BradBickford - how to connect the arduino to the roborio <br>
 https://www.amazon.com/HiLetgo-RFID-Kit-Arduino-Raspberry/dp/B01CSTW0IA/ - rfid tag on amazon
